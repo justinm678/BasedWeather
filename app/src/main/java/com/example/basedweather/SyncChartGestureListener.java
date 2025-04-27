@@ -34,7 +34,7 @@ public class SyncChartGestureListener implements OnChartGestureListener {
         targetChart.getViewPortHandler().refresh(dstMatrix, targetChart, true);
     }
     private void highlightOtherChart(MotionEvent me) {
-        Highlight highlight = sourceChart.getHighlightByTouchPoint(me.getX(), me.getY());
+        Highlight highlight = sourceChart.getHighlightByTouchPoint(me.getX(), 0f);
         if (highlight != null) {
             targetChart.highlightValue(highlight);
         } else {

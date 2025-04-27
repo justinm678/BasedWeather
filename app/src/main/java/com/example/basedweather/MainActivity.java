@@ -291,14 +291,37 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 LimitLine currentTimeLine = new LimitLine(currentTimeIndex, "");
-                currentTimeLine.setLineColor(Color.argb(20, 0, 255, 0));
-                currentTimeLine.setLineWidth(5f);
+                currentTimeLine.setLineColor(Color.argb(255, 255, 0, 0));
+                currentTimeLine.setLineWidth(1f);
                 LimitLine currentTimeLineBot = new LimitLine(currentTimeIndex, "");
-                currentTimeLineBot.setLineColor(Color.argb(20, 0, 255, 0));
-                currentTimeLineBot.setLineWidth(5f);
+                currentTimeLineBot.setLineColor(Color.argb(255, 255, 0, 0));
+                currentTimeLineBot.setLineWidth(1f);
 
                 xAxisTop.addLimitLine(currentTimeLine);
                 xAxisBot.addLimitLine(currentTimeLineBot);
+
+
+                // Add midnight markers for orientation
+
+                for (int i = 0; i < parsedTimes.size(); i++) {
+                    LocalDateTime time = parsedTimes.get(i);
+                    if (time.getHour() == 0 && time.getMinute() == 0) {  // Midnight check
+                        LimitLine midnightLine = new LimitLine(i);
+
+                        // Set black color
+                        midnightLine.setLineColor(Color.BLACK);
+                        midnightLine.setLineWidth(0.5f);
+
+                        // Hide the label
+                        midnightLine.setLabel("");
+
+                        // Add it to the chart's X axis
+                        lineChartTop.getXAxis().addLimitLine(midnightLine);
+                        lineChartBot.getXAxis().addLimitLine(midnightLine); // Also on the bottom chart
+                    }
+                }
+
+                //------------------------------------------------------------------------------------------
                 // Refresh the chart
                 lineChartTop.invalidate();
                 lineChartBot.invalidate();
