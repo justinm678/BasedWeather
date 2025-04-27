@@ -34,9 +34,18 @@ public class SyncChartGestureListener implements OnChartGestureListener {
         targetChart.getViewPortHandler().refresh(dstMatrix, targetChart, true);
     }
     private void highlightOtherChart(MotionEvent me) {
-        Highlight highlight = sourceChart.getHighlightByTouchPoint(me.getX(), 0f);
-        if (highlight != null) {
-            targetChart.highlightValue(highlight);
+        Highlight sourceHighlight = sourceChart.getHighlightByTouchPoint(me.getX(), me.getY());
+        if (sourceHighlight != null) {
+            float xValue = sourceHighlight.getX();
+
+            // Create a new Highlight for the target chart
+            Highlight targetHighlight = new Highlight(
+                    xValue,             // x position
+                    0f,                 // dummy y (won't matter)
+                    0                   // dataset index (assume 0, or whatever you need)
+            );
+
+            targetChart.highlightValue(targetHighlight, false);
         } else {
             targetChart.highlightValue(null);
         }
