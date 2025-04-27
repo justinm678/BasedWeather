@@ -291,14 +291,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 LimitLine currentTimeLine = new LimitLine(currentTimeIndex, "");
-                currentTimeLine.setLineColor(Color.GREEN);
+                currentTimeLine.setLineColor(Color.argb(60, 0, 255, 0));
                 currentTimeLine.setLineWidth(2f);
-                currentTimeLine.setTextColor(Color.GREEN);       // Label color
                 currentTimeLine.setTextSize(12f);                // Label text size
                 LimitLine currentTimeLineBot = new LimitLine(currentTimeIndex, "");
-                currentTimeLineBot.setLineColor(Color.GREEN);
+                currentTimeLineBot.setLineColor(Color.argb(60, 0, 255, 0));
                 currentTimeLineBot.setLineWidth(2f);
-                currentTimeLineBot.setTextColor(Color.GREEN);
                 currentTimeLineBot.setTextSize(12f);
 
                 xAxisTop.addLimitLine(currentTimeLine);
