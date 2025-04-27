@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.basedweather.models.Todo;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -276,6 +277,32 @@ public class MainActivity extends AppCompatActivity {
                 yAxisTop.setAxisMinimum(0f);  // Set minimum Y value to 0
                 YAxis yAxisTopR = lineChartTop.getAxisRight();
                 yAxisTopR.setAxisMinimum(0f);  // Set minimum Y value to 0
+
+
+                // Add current time markers
+                LocalDateTime now = LocalDateTime.now();
+                int currentTimeIndex = -1;
+
+                // Find the closest time index
+                for (int i = 0; i < parsedTimes.size(); i++) {
+                    if (!parsedTimes.get(i).isBefore(now)) {
+                        currentTimeIndex = i;
+                        break;
+                    }
+                }
+                LimitLine currentTimeLine = new LimitLine(currentTimeIndex, "");
+                currentTimeLine.setLineColor(Color.GREEN);
+                currentTimeLine.setLineWidth(2f);
+                currentTimeLine.setTextColor(Color.GREEN);       // Label color
+                currentTimeLine.setTextSize(12f);                // Label text size
+                LimitLine currentTimeLineBot = new LimitLine(currentTimeIndex, "");
+                currentTimeLineBot.setLineColor(Color.GREEN);
+                currentTimeLineBot.setLineWidth(2f);
+                currentTimeLineBot.setTextColor(Color.GREEN);
+                currentTimeLineBot.setTextSize(12f);
+
+                xAxisTop.addLimitLine(currentTimeLine);
+                xAxisBot.addLimitLine(currentTimeLineBot);
                 // Refresh the chart
                 lineChartTop.invalidate();
                 lineChartBot.invalidate();
