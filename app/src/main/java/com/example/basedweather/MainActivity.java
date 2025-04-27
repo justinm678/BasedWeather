@@ -301,25 +301,25 @@ public class MainActivity extends AppCompatActivity {
                 xAxisBot.addLimitLine(currentTimeLineBot);
 
 
-                // Add midnight markers for orientation
-
-                for (int i = 0; i < parsedTimes.size(); i++) {
-                    LocalDateTime time = parsedTimes.get(i);
-                    if (time.getHour() == 0 && time.getMinute() == 0) {  // Midnight check
-                        LimitLine midnightLine = new LimitLine(i);
-
-                        // Set black color
-                        midnightLine.setLineColor(Color.BLACK);
-                        midnightLine.setLineWidth(0.5f);
-
-                        // Hide the label
-                        midnightLine.setLabel("");
-
-                        // Add it to the chart's X axis
-                        lineChartTop.getXAxis().addLimitLine(midnightLine);
-                        lineChartBot.getXAxis().addLimitLine(midnightLine); // Also on the bottom chart
-                    }
-                }
+//                // Add midnight markers for orientation
+//
+//                for (int i = 0; i < parsedTimes.size(); i++) {
+//                    LocalDateTime time = parsedTimes.get(i);
+//                    if (time.getHour() == 0 && time.getMinute() == 0) {  // Midnight check
+//                        LimitLine midnightLine = new LimitLine(i);
+//
+//                        // Set black color
+//                        midnightLine.setLineColor(Color.BLACK);
+//                        midnightLine.setLineWidth(0.5f);
+//
+//                        // Hide the label
+//                        midnightLine.setLabel("");
+//
+//                        // Add it to the chart's X axis
+//                        lineChartTop.getXAxis().addLimitLine(midnightLine);
+//                        lineChartBot.getXAxis().addLimitLine(midnightLine); // Also on the bottom chart
+//                    }
+//                }
 
                 //------------------------------------------------------------------------------------------
                 // Refresh the chart
