@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("yay", String.format("%s was received!", response.body()));
                 List<String> hourly_time_list = response.body().hourly.time;
                 List<Float> hourly_temperature_list = response.body().hourly.temperature_2m;
-                List<Float> hourly_precipitation_probability_list = response.body().hourly.precipitation;
+                List<Float> hourly_precipitation_probability_list = response.body().hourly.precipitation_probability;
                 List<Float> hourly_uv_index_list = response.body().hourly.uv_index;
                 List<Float> hourly_cloud_cover_list = response.body().hourly.cloud_cover;
                 List<Float> hourly_dew_point_list = response.body().hourly.dew_point_2m;

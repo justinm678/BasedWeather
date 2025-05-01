@@ -146,7 +146,7 @@ public class Todo {
     }
 
     public class HourlyUnitsClass{
-        public String time, temperature_2m, cloud_cover, uv_index, precipitation, dew_point_2m;
+        public String time, temperature_2m, cloud_cover, uv_index, precipitation_probability, dew_point_2m;
 
         public String getDew_point_2m() {
             return dew_point_2m;
@@ -156,12 +156,12 @@ public class Todo {
             this.dew_point_2m = dew_point_2m;
         }
 
-        public String getPrecipitation() {
-            return precipitation;
+        public String getprecipitation_probability() {
+            return precipitation_probability;
         }
 
-        public void setPrecipitation(String precipitation) {
-            this.precipitation = precipitation;
+        public void setprecipitation_probability(String precipitation_probability) {
+            this.precipitation_probability = precipitation_probability;
         }
 
         public String getTime() {
@@ -197,7 +197,7 @@ public class Todo {
         }
     }
     public class HourlyClass{
-        public List<Float> temperature_2m, cloud_cover, uv_index, precipitation, dew_point_2m;
+        public List<Float> temperature_2m, cloud_cover, uv_index, precipitation_probability, dew_point_2m;
         public List<String> time;
 
         public List<Float> getDew_point_2m() {
@@ -208,12 +208,12 @@ public class Todo {
             this.dew_point_2m = dew_point_2m;
         }
 
-        public List<Float> getPrecipitation() {
-            return precipitation;
+        public List<Float> getprecipitation_probability() {
+            return precipitation_probability;
         }
 
-        public void setPrecipitation(List<Float> precipitation) {
-            this.precipitation = precipitation;
+        public void setprecipitation_probability(List<Float> precipitation_probability) {
+            this.precipitation_probability = precipitation_probability;
         }
 
         public List<Float> getTemperature_2m() {
